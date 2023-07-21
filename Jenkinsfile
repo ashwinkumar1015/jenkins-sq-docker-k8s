@@ -1,4 +1,5 @@
 pipeline{
+	agent any
 	stage('docker push'){
     	environment {     
       		DOCKERHUB_CREDENTIALS= credentials('docker_login')     
