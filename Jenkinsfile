@@ -7,7 +7,7 @@ pipeline{
     		}
     		steps{  
 	      		sh('ls')
-	    		sh ('echo $DOCKERHUB_CREDENTIALS | sudo docker login -u ashwinkumar1015 --password-stdin')
+	    		sh ('sudo docker login -u ashwinkumar1015 -p $DOCKERHUB_CREDENTIALS')
 	    		echo 'Login Completed'
 			sh ('sleep 20')
       			sh('docker logout')
