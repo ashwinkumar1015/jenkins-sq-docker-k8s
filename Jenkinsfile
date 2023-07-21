@@ -29,9 +29,11 @@ node {
 			}
     	}
   stage('k8s cmds'){
+	  withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
     sh('ls')
     sh('kubectl version --client -o yaml')
     sh('kubectl apply -f ns-nginx.yaml')
     sh('kubectl get all -n nginx')
+	  }
   }
 }
