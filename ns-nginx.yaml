@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: nginx-deploy
-        image: ashwinkumar1015/simple-app
+        image: ashwinkumar1015/ubuntu_con_id_display
         resources:
           limits:
             memory: "128Mi"

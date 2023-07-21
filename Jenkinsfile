@@ -14,7 +14,7 @@ node {
     sh('pwd')
     sh('ls')
     sh('docker rmi $(docker images -q)')
-    sh('docker build -t ashwinkumar1015/simple-app .')
+    sh('docker build -t ashwinkumar1015/ubuntu_con_id_display .')
   }
   stage('docker push'){
 			script{
@@ -22,7 +22,7 @@ node {
 	      			sh('ls')
 					sh('docker login -u ashwinkumar1015 -p ${DOCKER_PWD}')
 				}
-				sh ('docker push ashwinkumar1015/simple-app ')
+				sh ('docker push ashwinkumar1015/ubuntu_con_id_display ')
 				echo ('push completed')
 				sh ('sleep 20')
       			sh('docker logout')
