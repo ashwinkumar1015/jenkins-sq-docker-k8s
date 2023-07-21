@@ -5,12 +5,15 @@ pipeline{
     		environment {     
       			DOCKERHUB_CREDENTIALS= credentials('docker_login')     
     		}
-    		steps{  
+    		steps{
+			withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
 	      		sh('ls')
-	    		sh ('sudo docker login -u ashwinkumar1015 -p $DOCKERHUB_CREDENTIALS -S')
 	    		echo 'Login Completed'
+			sh ('docker push ashwinkumar1015/simple-app')
+			sh ('push completed')
 			sh ('sleep 20')
       			sh('docker logout')
+			}
     		}
   		}
 	}
