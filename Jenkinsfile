@@ -2,9 +2,6 @@ pipeline{
 	agent any
 	stages{
 		stage('docker push'){
-    		environment {     
-      			DOCKERHUB_CREDENTIALS= credentials('docker_login')     
-    		}
     		steps{
 			withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
 	      		sh('ls')
