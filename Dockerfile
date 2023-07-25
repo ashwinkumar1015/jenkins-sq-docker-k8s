@@ -4,6 +4,7 @@ MAINTAINER unknown
 
 COPY id.php /var/www/html/
 COPY start.sh /start.sh
+COPY ./website /var/www/html/
 
 WORKDIR /
 
